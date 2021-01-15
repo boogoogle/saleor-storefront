@@ -1,11 +1,18 @@
+# Saleor Storefront
+_**Note:** This project is beta quality. We don't advise using it in production._
+
 ## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
 - Node.js 10.0+
 - A running instance of Saleor.
 
-  To run the storefront, you have to set the `API_URI` environment variable to point to the Saleor GraphQL API. If you are running Saleor locally with the default settings, set `API_URI` to: `http://localhost:8000/graphql/`.
+To run the storefront, you have to set the `NEXT_PUBLIC_API_URI` environment variable to point to the Saleor GraphQL API.
+If you are running Saleor locally, with the default settings, `NEXT_PUBLIC_API_URI` is set to: `http://localhost:8000/graphql/`.  
+To change it create a [`local.env` file](https://nextjs.org/docs/basic-features/environment-variables#loading-environment-variables) and add it there. Use that file to store any other secrets keys.
 
 ### Installing
 
@@ -21,9 +28,7 @@ Run the development server:
 npm start
 ```
 
-Go to `http://localhost:3001` to access the storefront.
-
-
+Go to `http://localhost:3000` to access the storefront.
 ## Creating new components
 
 All new components should follow Atomic Design Guidelines and be placed in `src/@next/components` directory.
@@ -73,8 +78,20 @@ npm run generate
 ### Receiving confirmation emails
 
 - **Set [EMAIL_URL](https://docs.saleor.io/docs/developer/running-saleor/configuration#setting-environment-variables) environment variable for Saleor core.**
-  - Using Docker - Add EMAIL_URL as new enviornment variable to both the api and worker service following the format [here](https://docs.saleor.io/docs/developer/running-saleor/configuration#email_url).
+  - Using Docker - Add EMAIL_URL as new environment variable to both the api and worker service following the format [here](https://docs.saleor.io/docs/developer/running-saleor/configuration#email_url).
 - **Issues getting emails working?**
   - Gmail
     - Check to see that "Less secure app access" is turned ON. Under "Manage your Google Account" > Go to the security tab. By default, the setting is off for security reasons.
     - If using 2FA make sure to set an [app password](https://support.google.com/accounts/answer/185833?p=InvalidSecondFactor&visit_id=637355441414497566-1310044707&rd=1) and use that in place of your normal login password.
+
+### Multichannel
+
+- **Set [SALEOR_CHANNEL_SLUG] environment variable.** - Default value: `default-channel`.
+
+## License
+
+This project is licensed under the BSD-3-Clause License - see the [LICENSE](https://github.com/mirumee/saleor-storefront/blob/master/LICENSE) file for details
+
+#### Crafted with ❤️ by [Mirumee Software](http://mirumee.com)
+
+hello@mirumee.com

@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import { channelSlug } from "@temp/constants";
+
 import { NavLink } from "..";
 import { TypedSecondaryMenuQuery } from "./queries";
 
@@ -10,9 +12,14 @@ class Nav extends React.PureComponent {
     return (
       <footer className="footer-nav">
         <div className="container">
-          <TypedSecondaryMenuQuery>
+          <TypedSecondaryMenuQuery
+            variables={{
+              channel: channelSlug,
+              slug: "footer",
+            }}
+          >
             {({ data }) => {
-              return data.shop.navigation.secondary.items.map(item => (
+              return data.menu.items.map(item => (
                 <div className="footer-nav__section" key={item.id}>
                   <h4 className="footer-nav__section-header">
                     <NavLink item={item} />

@@ -7,12 +7,15 @@
 !.github
 !.babelrc
 !.plop
-!.npmrc
 !.jest
 !.linguirc
 !.prettierrc
 !.prettierignore
 !.tx
+!.env
+!.env.development
+!.env.production
+
 dist
 node_modules
 src/locales/_build
